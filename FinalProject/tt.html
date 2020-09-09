@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Exam Seating Arrangement System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container pt-3">
+      <form action="tt.php" method="post">
+        <p>SE</p><br>
+        <select name="SUB21">
+          <option value="21" selected>MathsIV</option>
+          <option value="22">CN</option>
+          <option value="23">COA</option>
+          <option value="24">AT</option>
+          <option value="25">WP</option>
+          <option value="26">ITC</option>
+        </select>
+        <select name="SUB22">
+          <option value="21">MathsIV</option>
+          <option value="22" selected>CN</option>
+          <option value="23">COA</option>
+          <option value="24">AT</option>
+          <option value="25">WP</option>
+          <option value="26">ITC</option>
+        </select>
+        <select name="SUB23">
+          <option value="21">MathsIV</option>
+          <option value="22">CN</option>
+          <option value="23" selected>COA</option>
+          <option value="24">AT</option>
+          <option value="25">WP</option>
+          <option value="26">ITC</option>
+        </select>
+        <select name="SUB24">
+          <option value="21">MathsIV</option>
+          <option value="22">CN</option>
+          <option value="23">COA</option>
+          <option value="24" selected>AT</option>
+          <option value="25">WP</option>
+          <option value="26">ITC</option>
+        </select>
+        <select name="SUB25">
+          <option value="21">MathsIV</option>
+          <option value="22">CN</option>
+          <option value="23">COA</option>
+          <option value="24">AT</option>
+          <option value="25" selected>WP</option>
+          <option value="26">ITC</option>
+        </select>
+        <select name="SUB26">
+          <option value="21">MathsIV</option>
+          <option value="22">CN</option>
+          <option value="23">COA</option>
+          <option value="24">AT</option>
+          <option value="25">WP</option>
+          <option value="26" selected>ITC</option>
+        </select>
+        <p>TE</p><br>
+        <select name="SUB31">
+          <option value="31" selected>ST</option>
+          <option value="32">DS</option>
+          <option value="33">SWS</option>
+          <option value="34">DMBI</option>
+          <option value="35">AIT</option>
+        </select>
+        <select name="SUB32">
+          <option value="31">ST</option>
+          <option value="32" selected>DS</option>
+          <option value="33">SWS</option>
+          <option value="34">DMBI</option>
+          <option value="35">AIT</option>
+        </select>
+        <select name="SUB33">
+          <option value="31">ST</option>
+          <option value="32">DS</option>
+          <option value="33" selected>SWS</option>
+          <option value="34">DMBI</option>
+          <option value="35">AIT</option>
+        </select>
+        <select name="SUB34">
+          <option value="31">ST</option>
+          <option value="32">DS</option>
+          <option value="33">SWS</option>
+          <option value="34" selected>DMBI</option>
+          <option value="35">AIT</option>
+        </select>
+        <select name="SUB35">
+          <option value="31">ST</option>
+          <option value="32">DS</option>
+          <option value="33">SWS</option>
+          <option value="34">DMBI</option>
+          <option value="35" selected>AIT</option>
+        </select>
+        <p>BE</p><br>
+        <select name="SUB41">
+          <option value="41" selected>SNMR</option>
+          <option value="42">BDS</option>
+          <option value="43">BDS</option>
+          <option value="44">ELECTIVE</option>
+        </select>
+        <select name="SUB42">
+          <option value="41">SNMR</option>
+          <option value="42" selected>BDS</option>
+          <option value="43">BDS</option>
+          <option value="44">ELECTIVE</option>
+        </select>
+        <select name="SUB43">
+          <option value="41">SNMR</option>
+          <option value="42">BDS</option>
+          <option value="43" selected>BDS</option>
+          <option value="44">ELECTIVE</option>
+        </select>
+        <select name="SUB44">
+          <option value="41">SNMR</option>
+          <option value="42">BDS</option>
+          <option value="43">BDS</option>
+          <option value="44" selected>ELECTIVE</option>
+        </select>
+        <br><br><br>
+        <p>CLASS 1 :</p>
+        <select name="class11">
+          <option value="2" selected>SE</option>
+          <option value="3">TE</option>
+          <option value="4">BE</option>
+        </select>
+        <select name="class12">
+          <option value="2">SE</option>
+          <option value="3" selected>TE</option>
+          <option value="4">BE</option>
+        </select>
+        <br>
+        <p>CLASS 2 :</p>
+        <select name="class21">
+          <option value="2">SE</option>
+          <option value="3" selected>TE</option>
+          <option value="4">BE</option>
+        </select>
+        <select name="class22">
+          <option value="2">SE</option>
+          <option value="3">TE</option>
+          <option value="4" selected>BE</option>
+        </select>
+        <br>
+        <br>
+        <p>CLASS 3 :</p>
+        <select name="class31">
+          <option value="2" selected>SE</option>
+          <option value="3">TE</option>
+          <option value="4">BE</option>
+        </select>
+        <select name="class32">
+          <option value="2">SE</option>
+          <option value="3">TE</option>
+          <option value="4" selected>BE</option>
+        </select>
+        <br><br>
+        <input type="submit" style="margin-left:20%;">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

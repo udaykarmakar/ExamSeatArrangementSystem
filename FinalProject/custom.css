@@ -1,0 +1,14 @@
+header
+{
+    font-size: large;
+}
+label{
+    display: inline-block;
+    width: 100px;
+}
+body{
+    font-size: larger;
+}
+input{
+    font-size: larger;
+}
