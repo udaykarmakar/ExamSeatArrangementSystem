@@ -38,11 +38,6 @@ else
         </div>
     </nav>
     <div class="container-fluid">
-<!--        <div class="row">-->
-<!--        <header class="col-md-6 col-md-push-3">-->
-<!--            <h1>SEATING ARRANGEMENT SYSTEM</h1>-->
-<!--        </header>-->
-<!--        </div>-->
         <div class="form-group col-md-4 col-md-push-4">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="form1" >
             <div>

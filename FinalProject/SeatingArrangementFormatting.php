@@ -16,7 +16,7 @@ $teName = array();
 $be = array();
 $beName = array();
 
-$conn = mysqli_connect('localhost','root','root') or die();
+$conn = mysqli_connect('localhost','root','') or die();
 $db = mysqli_select_db($conn,'seatingarrangement');
 
 $sqlSE = "Select `Roll_No`,CONCAT(`first_name`,\" \", `last_name`) from `secondyear` where `Roll_No` not in (".$_SESSION['seDefaulter'].")";

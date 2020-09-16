@@ -19,7 +19,7 @@ function addRow()
         inputDt.setAttribute("name",date);
         cell1.appendChild(inputDt);
         /*Dept*/
-        var department = "BBA"+Dept;  Dept++;
+        //var department = "Dept"+Dept;  Dept++;
         var cell5 = row1.insertCell(row1.childElementCount);
         cell5.setAttribute("name",department);
         loadDoc(cell5);

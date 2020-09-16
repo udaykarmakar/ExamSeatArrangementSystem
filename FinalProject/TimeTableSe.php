@@ -11,8 +11,8 @@ else {
         unset($_SESSION['SE']['Year']);
         $str =<<<end
 <script>
-alert('TimeTable For Second Year Is Set');
-window.location.assign("TimeTableTe.php");
+alert('TimeTable is Set');
+window.location.assign("seatingArrangementHomePage.php");
 </script>
 end;
         echo $str;
@@ -34,9 +34,8 @@ end;
             <div class="container-fluid">
                 <!--header-->
                 <div class="navbar-header">
-                    <a href="homepage.php" class="navbar-brand">SEATING ARRANGEMENT SYSTEM</a>
+                    <h1 style=color:white>SEATING ARRANGEMENT SYSTEM</h1>
                 </div>
-
             </div>
         </nav>
         <div class="container-fluid">
@@ -75,7 +74,7 @@ end;
                             <option value="BRE" id="BRE">Bachelor of Real Estate (BRE)</option>
                             <option value="BTHM" id="BTHM">Bachelor of Tourism & Hospitality Management (BTHM)</option>
                             <option value="BE" id="BE">Bachelor of Innovation & Entrepreneurship (BE)</option>
-                            <option value="CSE" id="CSE">B.Sc. in Computer Science & Engineering (CSE)</option>
+                            <option value="CSE" id="CSE" selected>B.Sc. in Computer Science & Engineering (CSE)</option>
                             <option value="CIS" id="CIS">B.Sc. in Computing & Information System (CIS)</option>
                             <option value="SWE" id="SWE">B.Sc. in Software Engineering (SWE)</option>
                             <option value="ESDM" id="ESDM">B.Sc. in Environmental Science and Disaster Management (ESDM)</option>

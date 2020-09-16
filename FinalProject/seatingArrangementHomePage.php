@@ -23,7 +23,7 @@ else
         <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
     </head>
 <body>
-<nav class="navbar navbar-default bg-primary">
+<nav class="navbar navbar-default bg-dark">
     <div class="container-fluid">
         <!--header-->
         <div class="navbar-header">
@@ -36,8 +36,8 @@ else
         <div class="data">
             <h1>Time Table Ready For Print </h1>
         </div>
-        <button name="Print" id="Print" onclick="printTimeTable()" class="btn btn-primary btn-block">Print</button><br/>
-        <button name="SeatingArrangement" id="seatingArrangement" onclick="move()" class="btn btn-primary btn-block" disabled>Seating Arrangement</button>
+        <button name="Print" id="Print" onclick="printTimeTable()" class="btn btn-dark btn-block">Print</button><br/>
+        <button name="SeatingArrangement" id="seatingArrangement" onclick="move()" class="btn btn-dark btn-block" disabled>Seating Arrangement</button>
     </div>
 </div>
 <!-- Button For Seating Arrangement-->

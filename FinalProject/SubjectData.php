@@ -29,7 +29,7 @@ $department = "department" . $_GET["department"];
 
 if($sqlResult!=false)
 {
-echo"<select name=".$subject.$department." class=\"form-control\">";
+echo"<select name=".$subject." class=\"form-control\">";
  while ($row = mysqli_fetch_array($sqlResult)) {
 print <<<end
 <option value="$row[0]">$row[0]</option>
