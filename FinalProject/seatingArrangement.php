@@ -27,66 +27,73 @@ else{
     <meta charset="utf-8">
     <title>Seating Arrangement</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="bootstrap/jquery-3.2.0.js"></script>
     <script src="bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="custom.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default bg-primary">
+<nav class="navbar navbar-expand-sm navbar-light">
     <div class="container-fluid">
         <!--header-->
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">SEATING ARRANGEMENT SYSTEM</a>
-        </div>
+                <img src="https://daffodilvarsity.edu.bd/template/images/diulogoside.png" style="max-width:150px"/>
+                <a href="homepage.php" class="navbar-brand" style="font-size:25px">EXAM SEATING ARRANGEMENT SYSTEM</a>
+            </div>
     </div>
 </nav>
-<div class="container-fluid">
-    <div class="col-md-6 col-md-push-3">
-        <header class="">
-            <h2>Seating Arrangement</h2>
-        </header>
-        <fieldset>
-            <legend>Details</legend>
-            <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onload="this.reset()">
+<section>
+    <div class="container">
+        <div class="col-md-6 col-md-push-3">
+            <header class="">
+                <h2>Seat Plan</h2>
+            </header>
+            <fieldset>
+                <legend>Details</legend>
+                <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onload="this.reset()">
 
-                <div class="row">
-                    <label for="yearSelect">Second Year: </label><br/>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="seDefaulter"
-                               pattern="^([0-9]+,)*[0-9]+$" required/>
+                    <div class="row">
+                        <label for="yearSelect">Level 1: </label><br/>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="seDefaulter"
+                                pattern="^([0-9]+,)*[0-9]+$" required/>
+                        </div>
+                        <div class="col-md-6">If no defaulters enter 0
+                        </div>
                     </div>
-                    <div class="col-md-6">If no defaulters enter 0
+                    <br/>
+                    <div class="row">
+                        <label for="yearSelect">Level 2: </label><br/>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="teDefaulter"
+                                pattern="^([0-9]+,)*[0-9]+$" required/>
+                        </div>
+                        <div class="col-md-6">
+                            If no defaulters enter 0
+                        </div>
                     </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <label for="yearSelect">Third Year: </label><br/>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="teDefaulter"
-                               pattern="^([0-9]+,)*[0-9]+$" required/>
+                    <br/>
+                    <div class="row">
+                        <label for="yearSelect">Level 3: </label><br/>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="beDefaulter"
+                                pattern="^([0-9]+,)*[0-9]+$" required/>
+                        </div>
+                        <div class="col-md-6">
+                            If no defaulters enter 0
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        If no defaulters enter 0
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <label for="yearSelect">Fourth Year: </label><br/>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="eg. 1,2,3,4,5" name="beDefaulter"
-                               pattern="^([0-9]+,)*[0-9]+$" required/>
-                    </div>
-                    <div class="col-md-6">
-                        If no defaulters enter 0
-                    </div>
-                </div>
-                <br/>
-                <input type="submit" value="Submit" id="submit" class="btn btn-primary btn-block">
-            </form>
-        </fieldset>
+                    <br/>
+                    <input type="submit" value="Submit" id="submit" class="btn btn-dark btn-block">
+                </form>
+            </fieldset>
+        </div>
     </div>
-</div>
+</section>
 </body>
 </html>
 <?php

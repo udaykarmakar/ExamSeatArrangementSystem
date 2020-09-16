@@ -280,7 +280,7 @@ var_dump($DateBe);
 	
 	$teacherinclass; //an array to store  the teacher assigned to each class.3 days, 3 class, 2 papers,2 duties per paper
 	$total=30; 
-	$l=0;//l is used to reapeat the teacher structure
+	$l=0;//l is used to repeat the teacher structure
 	$year;
 	//printf("works<br><br>")	;
 	for($i=0;$i<3;$i++)

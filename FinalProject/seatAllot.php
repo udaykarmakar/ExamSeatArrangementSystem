@@ -2,13 +2,13 @@
 for($i = 0;$i<$_SESSION['Details']['noClass'];$i++)
     unset($_SESSION['class_'.$i]);
 require_once('fpdf.php');
-$sID1 =array();
-$sID2 =array();
+$roll1 =array();
+$roll2 =array();
 
 class pdf extends fpdf
 {
-   public $sID1 = array();
-   public $sID2 = array();
+   public $roll1 = array();
+   public $roll2 = array();
    function Header()
    {
       $this->SetMargins(2,2,2);
@@ -24,28 +24,28 @@ class pdf extends fpdf
       $this->Ln();
    }
 
-   /* Printing ID No. Together */
+   /* Printing Roll No. Together */
    function frontToBack($x,$PreFix1,$PreFix2,$noBench=9)
    {
    	for($i=0;$i<$noBench;$i++)
    	{
          $this->SetY($this->GetY()+1);
    		$this->SetX($x);
-         if(count($this->sID1)==0)
+         if(count($this->roll1)==0)
          {
             $this->Cell(2,1," ",1,0,'C');
          }
          else
          {
-          $this->Cell(2,1,$PreFix1." ".array_shift($this->sID1),1,0,'C'); 
+          $this->Cell(2,1,$PreFix1." ".array_shift($this->roll1),1,0,'C'); 
          }
-         if(count($this->sID2)==0)
+         if(count($this->roll2)==0)
          {
             $this->Cell(2,1,"",1,0,'C'); 
          }
          else
          {
-            $this->Cell(2,1,$PreFix2." ".array_shift($this->sID2),1,0,'C');
+            $this->Cell(2,1,$PreFix2." ".array_shift($this->roll2),1,0,'C');
          }
 
    	}
@@ -56,21 +56,21 @@ class pdf extends fpdf
    	for($i=0;$i<$noBench;$i++)	
    	{
    	$this->SetX($x);
-      if(count($this->sID1)==0)
+      if(count($this->roll1)==0)
       {
         $this->Cell(2,1,"",1,0,'C'); 
       }
       else
       {
-        $this->Cell(2,1,$PreFix1." ".array_shift($this->sID1),1,0,'C'); 
+        $this->Cell(2,1,$PreFix1." ".array_shift($this->roll1),1,0,'C'); 
       }
-      if(count($this->sID2)==0)
+      if(count($this->roll2)==0)
       {
          $this->Cell(2,1,"",1,0,'C'); 
       }
       else
       {
-        $this->Cell(2,1,$PreFix2." ".array_shift($this->sID2),1,0,'C');  
+        $this->Cell(2,1,$PreFix2." ".array_shift($this->roll2),1,0,'C');  
       }
    	$this->SetY($this->GetY()-1);
    	}
@@ -83,9 +83,9 @@ class pdf extends fpdf
    	$this->SetX(-(6));
    	$this->Cell(0,0,"____________________");
    	$this->SetY(-2);
-   	$this->	Cell(4.2,1,"Professor incharge",0,0,'C');
+   	$this->	Cell(4.2,1,"Exam Controller",0,0,'C');
    	$this->SetX(-5.8);
-   	$this->Cell(4,1,"H.O.D",0,0,'C');
+   	$this->Cell(4,1,"Head Of the Department",0,0,'C');
    	
    }
 }
@@ -95,13 +95,13 @@ function seatAllot($se,$te,$be)
    $roomNo =$_SESSION['Details']['noClass'];
    $seSlots = array_chunk(array_keys($se),34);
    $seSlotCount = count($seSlots);
-   $sePreFix="S.E";
+   $sePreFix="SE";
    $teSlots = array_chunk(array_keys($te),34);
    $teSlotCount = count($teSlots);
-   $tePreFix="T.E";
+   $tePreFix="TE";
    $beSlots = array_chunk(array_keys($be),34);
    $beSlotCount = count($beSlots);
-   $bePreFix="B.E";
+   $bePreFix="BE";
    $page = new pdf('P','cm','A4');
    for($i=0;$i<$roomNo;$i++)
    {
@@ -111,12 +111,12 @@ function seatAllot($se,$te,$be)
       {
       $PreFix1 = $sePreFix;
       $PreFix2 = $tePreFix;
-      $page->sID1 = array_shift($seSlots);
-      $page->sID2 = array_shift($teSlots);
+      $page->roll1 = array_shift($seSlots);
+      $page->roll2 = array_shift($teSlots);
       $str = "YOU ARE HERE";
-          if(count($page->sID1)>0)
+          if(count($page->roll1)>0)
               $_SESSION['class_'.$i][]=$PreFix1;
-          if(count($page->sID2)>0)
+          if(count($page->roll2)>0)
               $_SESSION['class_'.$i][]=$PreFix2;
       $page->SetX(15.5);
       $page->Cell(4,1,$str,0,1,'C');
@@ -130,12 +130,12 @@ function seatAllot($se,$te,$be)
       {
       $PreFix1 = $tePreFix;
       $PreFix2 = $bePreFix;
-      $page->sID1 = array_shift($teSlots);
-      $page->sID2 = array_shift($beSlots); 
+      $page->roll1 = array_shift($teSlots);
+      $page->roll2 = array_shift($beSlots); 
       $str = "YOU ARE HERE";
-          if(count($page->sID1)>0)
+          if(count($page->roll1)>0)
               $_SESSION['class_'.$i][]=$PreFix1;
-          if(count($page->sID2)>0)
+          if(count($page->roll2)>0)
               $_SESSION['class_'.$i][]=$PreFix2;
       $page->SetX(15.5);
       $page->Cell(4,1,$str,0,1,'C');
@@ -149,12 +149,12 @@ function seatAllot($se,$te,$be)
       {
       $PreFix1 = $bePreFix;
       $PreFix2 = $sePreFix;
-      $page->sID1 = array_shift($beSlots);
-      $page->sID2 = array_shift($seSlots);
+      $page->roll1 = array_shift($beSlots);
+      $page->roll2 = array_shift($seSlots);
       $str = "YOU ARE HERE";
-      if(count($page->sID1)>0)
+      if(count($page->roll1)>0)
          $_SESSION['class_'.$i][]=$PreFix1;
-      if(count($page->sID2)>0)
+      if(count($page->roll2)>0)
          $_SESSION['class_'.$i][]=$PreFix2;
       $page->SetX(15.5);
       $page->Cell(4,1,$str,0,1,'C');

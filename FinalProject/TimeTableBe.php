@@ -12,7 +12,6 @@ else
         unset($_SESSION['BE']['Year']);
         $str = <<< end
 <script>
-alert('Time Table Set For Final Year');
 window.location.assign("seatingArrangementHomePage.php");
 </script>
 end;
@@ -24,51 +23,81 @@ else {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Time Table: Fourth Year</title>
-            <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
+    <title>Time Table: Level 3</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="custom.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body>
-  <nav class="navbar navbar-default bg-primary">
+  <nav class="navbar navbar-expand-sm navbar-light">
       <div class="container-fluid">
           <!--header-->
-          <div class="navbar-header">
-              <a href="#" class="navbar-brand">SEATING ARRANGEMENT SYSTEM</a>
-          </div>
+            <div class="navbar-header">
+                <img src="https://daffodilvarsity.edu.bd/template/images/diulogoside.png" style="max-width:150px"/>
+                <a href="homepage.php" class="navbar-brand" style="font-size:25px">EXAM SEATING ARRANGEMENT SYSTEM</a>
+            </div>
       </div>
   </nav>
-  <div class="container-fluid">
+  <section>
+  <div class="container">
       <div class="col-md-6 col-md-push-3">
           <div class="row">
               <header>
-                  <h1>Time Table: Fourth Year</h1>
+                <p style="padding:20px; font-size:30px">Time Table: Level 3 (Term 1, 2, & 3)</p>
               </header>
           </div>
           <div class="row">
-              <div class="col-md-12">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <label for="Add">Add Row</label>
-                      </div>
-                  </div>
-                  <div class="row">
-                  <div class="col-md-4">
-                      <select name="RowCount" title="RolwCount" class="form-control">
-                          <option value="One" id="one">1 Subject</option>
-                          <option value="two" id="two">2 Subjects</option>
-                      </select>
-                  </div>
-                  <div class="col-md-4">
-                      <button name="Add" onclick="addRow()" class="btn btn-primary btn-block">Add</button>
-                  </div>
-                  </div>
-              </div>
-          </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="Add">Add Subjects</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="RowCount" title="RowCount" class="form-control" style="font-size:12px">
+                                        <option value="One" id="one">1 Subject</option>
+                                        <option value="two" id="two">2 Subjects</option>
+                                        <option value="three" id="three">3 Subjects</option>
+                                        <option value="four" id="four">4 Subjects</option>
+                                        <option value="five" id="five">5 Subjects</option>
+                                        <option value="six" id="six">6 Subjects</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <button name="Add" onclick="addRow()" class="btn btn-dark btn-block" style="font-size:12px">Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="Add">Select Term</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="RowCount" title="RowCount" class="form-control" style="font-size:12px">
+                                        <option value="One" id="one">Level 3 : Term 1</option>
+                                        <option value="two" id="two">Level 3 : Term 2</option>
+                                        <option value="three" id="three">Level 3 : Term 3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <button name="Add" onclick="addRow()" class="btn btn-dark btn-block" style="font-size:12px">Add</button>
+                                </div>
+                            </div>
+                        </div>
       <br/><br/>
       <form id="form1" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
           <input type="hidden" name="Year" id="year" value="BE"/>
           <input type="hidden" name="Arrangement"  id="Arrangement" value="" title="Arrangement"/>
           <table class="table table-bordered table-condensed">
-              <tbody id="table">
+              <tbody id="table" style="font-size:12px">
               <tr>
                   <th >Date</th>
                   <th >Subject</th>
@@ -76,7 +105,7 @@ else {
               </tbody>
           </table>
           <br/><br/>
-          <input type="Submit" class="btn btn-primary btn-block"/>
+          <input type="Submit" class="btn btn-dark btn-block" style="font-size:12px"/>
       </form>
       </div>
   </div>

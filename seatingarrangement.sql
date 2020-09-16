@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2017 at 02:40 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Sep 09, 2020 at 10:55 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 7.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -224,7 +224,7 @@ INSERT INTO `secondyear` (`Roll_No`, `first_name`, `last_name`) VALUES
 
 CREATE TABLE `subject` (
   `SubjectCode` varchar(20) NOT NULL,
-  `Name` varchar(40) NOT NULL,
+  `Name` varchar(100) NOT NULL,
   `ShortNames` varchar(10) NOT NULL,
   `Lecturer_Id` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -234,38 +234,51 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`SubjectCode`, `Name`, `ShortNames`, `Lecturer_Id`) VALUES
-('TEITC602', 'Distributed System', 'D.S', '1005'),
-('TEITC604', 'Data mining and business Intelligence', 'D.M.B.I', '1002'),
-('TEITC605', 'Advanced Internet Technology', 'A.I.T', '1004'),
-('TEITC601', 'Software Engineering', 'S.E', '1001'),
-('TEITC603', 'Software and Web Security', 'S.W.S', '1010'),
-('BEITC701', 'Software Project Management', 'S.P.M', '1001'),
-('BEITC702', 'Cloud Computing', 'C.C', '1005'),
-('BEITC703', 'Intelligent System', 'I.S', '1005'),
-('BEITC704', 'Wireless Technology', 'W.T', '1009'),
-('BEITC705', 'Elective-1', 'E-1', '1008'),
-('BEITC801', 'Storage Network Management and Retrieval', 'S.N.M.R', '1009'),
-('BEITC802', 'Big Data Analytics', 'B.D.A', '1005'),
-('BEITC803', 'Computer Simulation and Modeling', 'C.S.M', '1001'),
-('BEITC804', 'Elective-2', 'E-2', '1001'),
-('TEITC501', 'Computer Graphics And Virtual Reality', 'C.G.V.R', '1004'),
-('TEITC502', 'Operating System', 'O.S', '1001'),
-('TEITC503', 'Microcontroller and Embeded System', 'M.C.E.S', '1007'),
-('TEITC504', 'Advanced Database Management Systems', 'A.D.B.M.S', '1010'),
-('TEITC505', 'Open Source Technologies', 'O.S.T', '1002'),
-('TEITC506', 'Business Communication And Ethics', 'B.C.E', ''),
-('SEITC301', 'Applied Mathemetics 3', 'A.M 3', ''),
-('SEITC302', 'Data Structure And Algorithm', 'D.S.A', '1008'),
-('SEITC303', 'Object Oriented Programming Methodology', 'O.O.P.M', '1010'),
-('SEITC304', 'Analog And Digital Circuits', 'A.D.C', '1007'),
-('SEITC306', 'Principles Of Analog And Digital Comm', 'P.A.D.C', ''),
-('SEITC305', 'Database Management System', 'D.B.M.S', '1010'),
-('SEITC401', 'Applied Mathemetics 4', 'A.M 4', ''),
-('SEITC402', 'Computer Networks', 'C.N', '1002'),
-('SEITC403', 'Computer Organization And Architecture', 'C.O.A', '1007'),
-('SEITC404', 'Automata Theory', 'A.T', '1006'),
-('SEITC405', 'Web Programming', 'W.P', '1003'),
-('SEITC406', 'Information Theory And Coding', 'I.T.C', '1010');
+('MAT121', 'Mathematics II: Linear algebra and Coordinate Geometry', 'MAT 121', '1005'),
+('CSE131', 'Discrete Mathematics', ' CSE 131', '1002'),
+('ENG113', 'English Language-1', 'ENG 113', '1004'),
+('PHY123', 'Physics- II: Electricity, Magnetism and Modern Physics', 'PHY 123', '1001'),
+('PHY123L', 'Physics-II Lab', 'PHY 123L', '1010'),
+('CSE213', 'Algorithms', 'CSE 213', '1001'),
+('CSE213L', 'Algorithm Lab', 'CSE 213L', '1005'),
+('ACC214', 'Accounting', 'ACC 214', '1005'),
+('ECO314', ' Economics', ' ECO 314', '1009'),
+('MAT134', 'Mathematics III : Ordinary and Partial Differential Equations', ' MAT 134', '1008'),
+('CSE221', 'Theory of Computing', ' CSE 221', '1009'),
+('CSE222', 'Object Oriented Programming', ' CSE 222', '1005'),
+('CSE222L', 'Object Oriented Programming Lab', 'CSE 222L', '1001'),
+('MAT211', 'Mathematics-IV : Engineering Mathematics', ' MAT 211', '1001'),
+('STA223', ' Statistics', ' STA 223', '1004'),
+('CSE231', 'Microprocessor and Assembly Language', ' CSE 231', '1001'),
+('CSE231L', ' Microprocessor and assembly Language Lab', ' CSE 231L', '1007'),
+('CSE224', 'Electronic Devices and Circuits', ' CSE 224', '1010'),
+('CSE224L', 'Electronic Devices and Circuits Lab', ' CSE 224L', '1002'),
+('CSE232', 'Instrumentation and Control', 'CSE 232', '1010'),
+('CSE233', 'Data Communication', 'CSE 233', ''),
+('CSE322', 'Computer Architecture and Organization', ' CSE 322', '1008'),
+('CSE313', 'Computer Networks', 'CSE 313', '1010'),
+('CSE313L', 'Computer Networks Lab', 'CSE 313L', '1007'),
+('CSE311', 'Database Management System', 'CSE 311', '1001'),
+('CSE311L', 'Database Management System Lab', 'CSE 311L', '1010'),
+('CSE312', 'Numerical Methods', ' CSE 312', '1005'),
+('CSE331', 'Compiler Design', 'CSE 331', '1002'),
+('CSE331L', 'Compiler Design Lab', 'CSE 331L', '1007'),
+('CSE413', 'Simulation and Modeling', 'CSE 413', '1006'),
+('CSE413L', 'Simulation and Modeling Lab', ' CSE 413L', '1003'),
+('CSE323', 'Operating System', 'CSE 323', '1010'),
+('CSE323L', 'Operating System Lab', 'CSE 323L', '1003'),
+('CSE321', 'System Analysis and Design', 'CSE 321', '1003'),
+('CSE321L', 'System Analysis and Design Lab', 'CSE 321L', '1008'),
+('CSE421', 'Computer Graphics', 'CSE 421', '1004'),
+('CSE421L', 'Computer Graphics Lab', 'CSE 421L', '1004'),
+('CSE431', 'E-Commerce & Web Application', 'CSE 431', '1005'),
+('MGT414', ' Industrial Management', ' MGT 414', '1006'),
+('CSE412', 'Artificial Intelligence', 'CSE 412', '1007'),
+('CSE412L', 'Artificial Intelligence Lab', 'CSE 412L', '1007'),
+('CSE411', 'Communication Engineering', 'CSE 411', '1008'),
+('CSE332', 'Software Engineering', 'CSE 332', '1009'),
+('CSE333', 'Peripherals & Interfacing', 'CSE 333', '1009'),
+('CSE432', 'Computer and Network Security', 'CSE 432', '1006');
 
 -- --------------------------------------------------------
 
@@ -284,16 +297,16 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`EmpId`, `Name`, `Designation`) VALUES
-('1001', 'Mahalaxmi', 'Lecturer'),
-('1002', 'Tayyabali', 'Assistant Professor'),
-('1003', 'Nilesh', 'Assistant Professor'),
-('1004', 'Vaishali', 'Assistant Professor'),
-('1005', 'Sunantha', 'Lecturer'),
-('1006', 'Uday', 'Lecturer'),
-('1007', 'Jhanavi', 'Head Of Department'),
-('1008', 'Sushree', 'Assistant Professor'),
-('1009', 'Prasad', 'Lecturer'),
-('1010', 'Aruna', 'Assistant Lectuter');
+('1001', 'Prof. Dr. Syed Akhter Hossain', 'Head of the Dept'),
+('1002', 'Dr. Sheak Rashed Haider Noori', 'Associate Head'),
+('1003', 'Dr. Md. Mustafizur Rahman', 'Associate Professor'),
+('1004', 'Dr. S. M. Aminul Haque', 'Associate Professor'),
+('1005', 'Professor Dr. Md. Ismail Jabiullah', 'Professor'),
+('1006', 'Dr. S.R.Subramanya', 'Visiting Professor'),
+('1007', 'Dr. Neil Perez Balba', 'Visiting Professor'),
+('1008', 'Dr. Bibhuti Roy', 'Visiting Professor'),
+('1009', 'Mr. Anisur Rahman', 'Assistant Professor'),
+('1010', 'Mr. Gazi Zahirul Islam', 'Assistant Professor');
 
 -- --------------------------------------------------------
 

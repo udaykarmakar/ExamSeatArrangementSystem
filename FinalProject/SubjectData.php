@@ -15,17 +15,16 @@ if($Sem == "summer")
 }
 if($Sem == "fall")
 {
-   $SemPattern = "[9,10,11,12]";
+   $SemPattern = "[8,9,10,11,12]";
 }
+
 /*
  REGEXP '^[TE].*[2,4,6,8]..$'
 */
-$sql = "Select ShortNames from Subject where SubjectCode REGEXP '^[".$_GET["Year"]."].*".$SemPattern."..$'";
+$sql = "Select ShortNames from subject where SubjectCode REGEXP '^[".$_GET["Year"]."].*".$SemPattern."..$'";
 $sqlResult = mysqli_query($conn,$sql);
 $i=0;
-print_r($_GET);
 $subject = "subject" . $_GET["subject"];
-$department = "department" . $_GET["department"];
 
 if($sqlResult!=false)
 {

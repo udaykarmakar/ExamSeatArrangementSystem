@@ -33,9 +33,9 @@ class timeTable extends fpdf
 	$this->SetX(-(9));
 	$this->Cell(0,0,"____________________");
 	$this->SetY(-2);
-	$this->	Cell(4.2,1,"Professor incharge",0,0,'C');
+	$this->	Cell(4.2,1,"Exam Controller",0,0,'C');
 	$this->SetX(-9);
-	$this->Cell(4,1,"HOD",0,0,'C');
+	$this->Cell(4,1,"Head Of the Department",0,0,'C');
 	}
 	function SingleDataBlock($Date,$from,$to,$duration,$sub)
 	{
