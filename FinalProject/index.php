@@ -1,27 +1,29 @@
 <?php
-    $uname = $_POST['uname'];
-    $pass = $_POST['pass'];
+    $db = "seatingarrangement";
     $error = "";
     $success = "";
+    $conn = mysqli_connect('localhost','root','') or die();
+    $db = mysqli_select_db($conn, $db);
 
-    if(isset($_POST['login'])){
-        if($uname == "admin"){
-            if($pass == "admin"){
-                $error = "";
-                $success = "Welcome Sir...!!";
+    if(isset($_POST['uname'])){
+        $username=$_POST['uname'];
+        $password=$_POST['pass'];
+        $sql="select * from login where uname='".$username."' AND pass='".$password."' limit 1";
+        
+        $result=mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result)==1){
+            $error = "";
+            $success = "Welcome Sir...!!";
 
-                header("location: homepage.php");
-            }
-            else{
-                $error = "Invalid Password!!!";
-                $success = "";
-            }
+            header("location: homepage.php");
         }
         else{
-            $error = "Invalid User Name!!!";
+            $error = "Invalid Password!!!";
             $success = "";
+            exit();
         }
     }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +32,9 @@
         <title>Login!</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="custom.css">
+        <style>
+            
+        </style>
     </head>
     <body style="background: linear-gradient(-30deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8b 100%)">
     
@@ -51,10 +56,8 @@
                         <label>Password</label>
                     </div>
                 </div>
-                <input type="submit" name="login" value="Login">
+                <input type="submit" name="submit" class="btn-login" value="Login">
             </form>
         </div>
     </body>
 </html>
-<?php 
-?>

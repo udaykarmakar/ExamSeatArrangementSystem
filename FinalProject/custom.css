@@ -72,7 +72,7 @@ select{
     position: relative;
     top: 50%;
     left:50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     width: 400px;
     padding: 40px;
     background: rgba(255, 255, 255, .1);
@@ -151,6 +151,7 @@ select{
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 .box input[type="submit"] :hover{
     box-shadow: inset 0 0 25px rgba(0, 0, 0, .2);
