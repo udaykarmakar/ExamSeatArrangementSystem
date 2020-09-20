@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2020 at 10:55 PM
+-- Generation Time: Sep 20, 2020 at 08:56 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.0
 
@@ -117,6 +117,28 @@ INSERT INTO `fourthyear` (`Roll_No`, `first_name`, `last_name`) VALUES
 (78, 'Brandon', 'Watkins'),
 (79, 'Sean', 'Moreno'),
 (80, 'Cheryl', 'Perez');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `ID` int(10) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`ID`, `uname`, `pass`) VALUES
+(1, 'admin', 'admin'),
+(2, 'uday15-9779@diu.edu.bd', '172-15-9779'),
+(3, 'neelima15-10150@diu.edu.bd', '172-15-10150'),
+(4, 'syeda15-10000@diu.edu.bd', '172-15-10000');
 
 -- --------------------------------------------------------
 
@@ -411,6 +433,12 @@ INSERT INTO `thirdyear` (`Roll_No`, `first_name`, `last_name`) VALUES
 --
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `subject`
 --
 ALTER TABLE `subject`
@@ -423,6 +451,15 @@ ALTER TABLE `subject`
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`EmpId`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
