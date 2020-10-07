@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 define('FPDF_VERSION','1.81');
 
@@ -1046,6 +1047,7 @@ protected function _checkoutput()
 	}
 	if(ob_get_length())
 	{
+		print_r(ob_get_contents());
 		// The output buffer is not empty
 		if(preg_match('/^(\xEF\xBB\xBF)?\s*$/',ob_get_contents()))
 		{

@@ -11,6 +11,7 @@ else
         {
             $_SESSION['TE'] = $_POST;
             unset($_SESSION['TE']['Year']);
+        // var_dump($_SESSION);exit;
             $str = <<< end
 <script>
 window.location.assign("TimeTableBe.php");
@@ -23,36 +24,28 @@ end;
             <!DOCTYPE html>
             <html>
             <head>
-                <meta charset="utf-8">
+                <?php include('head.php'); ?>
                 <title>Time Table: Level 2</title>
-                <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
-                <link rel="stylesheet" href="custom.css"/>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
             </head>
             <body>
             <nav class="navbar navbar-expand-sm navbar-light">
                 <div class="container-fluid">
                     <!--header-->
                     <div class="navbar-header">
-                        <img src="https://daffodilvarsity.edu.bd/template/images/diulogoside.png" style="max-width:150px"/>
+                        <img src="dist/img/diulogoside.png" style="max-width:150px"/>
                         <a href="homepage.php" class="navbar-brand" style="font-size:25px">EXAM SEATING ARRANGEMENT SYSTEM</a>
                     </div>
                 </div>
             </nav>
             <section>
                 <div class="container">
-                        <div class="col-md-6 col-md-push-3">
+                        <div class="col-md-8 col-md-push-2">
                             <div class="row">
                                 <header>
                                 <p style="padding:20px; font-size:30px">Time Table: Level 2 (Term 1, 2, & 3)</p>
                                 </header>
                             </div>
-                        <div class="row">
+                        <div class="row" style="display: none;">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -83,7 +76,7 @@ end;
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <select name="RowCount" title="RowCount" class="form-control" style="font-size:12px">
+                                    <select id="termId" name="RowCount" title="RowCount" class="form-control" style="font-size:12px">
                                         <option value="One" id="one">Level 2 : Term 1</option>
                                         <option value="two" id="two">Level 2 : Term 2</option>
                                         <option value="three" id="three">Level 2 : Term 3</option>
@@ -94,6 +87,8 @@ end;
                                 </div>
                             </div>
                         </div>
+                <input type="hidden" id="programId" value="<?php echo $_SESSION['Details']['Exam']=="Day_Program"?1:2; ?>" >
+                <input type="hidden" id="levelId" value="2" >
                     <form id="form2" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                         <br/>
                         <input type="hidden" name="Year" id="year" value="TE"/>
@@ -101,7 +96,11 @@ end;
                         <table class="table table-bordered table-condensed">
                             <tbody id="table" style="font-size:12px">
                             <tr>
+                                <th>Term</th>
                                 <th>Date</th>
+                                <th>Time Start</th>
+                                <th>Time End</th>
+                                <th>Room</th>
                                 <th>Subject</th>
                             </tr>
                             </tbody>

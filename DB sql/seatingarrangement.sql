@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2020 at 08:56 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 7.0.0
+-- Generation Time: Oct 06, 2020 at 01:10 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `seatingarrangement`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classroom`
+--
+
+CREATE TABLE `classroom` (
+  `Classroom_ID` varchar(10) NOT NULL,
+  `Classroom_Name` varchar(20) NOT NULL,
+  `Available_Seat` int(10) NOT NULL,
+  `Assigned_At` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `classroom`
+--
+
+INSERT INTO `classroom` (`Classroom_ID`, `Classroom_Name`, `Available_Seat`, `Assigned_At`) VALUES
+('DT101', 'DT 101', 40, '0000-00-00'),
+('DT102', 'DT 102', 50, '0000-00-00'),
+('DT103', 'DT 103', 60, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -248,6 +272,9 @@ CREATE TABLE `subject` (
   `SubjectCode` varchar(20) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `ShortNames` varchar(10) NOT NULL,
+  `program_ID` int(20) NOT NULL,
+  `level_ID` int(20) NOT NULL,
+  `term_ID` int(20) NOT NULL,
   `Lecturer_Id` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -255,52 +282,109 @@ CREATE TABLE `subject` (
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`SubjectCode`, `Name`, `ShortNames`, `Lecturer_Id`) VALUES
-('MAT121', 'Mathematics II: Linear algebra and Coordinate Geometry', 'MAT 121', '1005'),
-('CSE131', 'Discrete Mathematics', ' CSE 131', '1002'),
-('ENG113', 'English Language-1', 'ENG 113', '1004'),
-('PHY123', 'Physics- II: Electricity, Magnetism and Modern Physics', 'PHY 123', '1001'),
-('PHY123L', 'Physics-II Lab', 'PHY 123L', '1010'),
-('CSE213', 'Algorithms', 'CSE 213', '1001'),
-('CSE213L', 'Algorithm Lab', 'CSE 213L', '1005'),
-('ACC214', 'Accounting', 'ACC 214', '1005'),
-('ECO314', ' Economics', ' ECO 314', '1009'),
-('MAT134', 'Mathematics III : Ordinary and Partial Differential Equations', ' MAT 134', '1008'),
-('CSE221', 'Theory of Computing', ' CSE 221', '1009'),
-('CSE222', 'Object Oriented Programming', ' CSE 222', '1005'),
-('CSE222L', 'Object Oriented Programming Lab', 'CSE 222L', '1001'),
-('MAT211', 'Mathematics-IV : Engineering Mathematics', ' MAT 211', '1001'),
-('STA223', ' Statistics', ' STA 223', '1004'),
-('CSE231', 'Microprocessor and Assembly Language', ' CSE 231', '1001'),
-('CSE231L', ' Microprocessor and assembly Language Lab', ' CSE 231L', '1007'),
-('CSE224', 'Electronic Devices and Circuits', ' CSE 224', '1010'),
-('CSE224L', 'Electronic Devices and Circuits Lab', ' CSE 224L', '1002'),
-('CSE232', 'Instrumentation and Control', 'CSE 232', '1010'),
-('CSE233', 'Data Communication', 'CSE 233', ''),
-('CSE322', 'Computer Architecture and Organization', ' CSE 322', '1008'),
-('CSE313', 'Computer Networks', 'CSE 313', '1010'),
-('CSE313L', 'Computer Networks Lab', 'CSE 313L', '1007'),
-('CSE311', 'Database Management System', 'CSE 311', '1001'),
-('CSE311L', 'Database Management System Lab', 'CSE 311L', '1010'),
-('CSE312', 'Numerical Methods', ' CSE 312', '1005'),
-('CSE331', 'Compiler Design', 'CSE 331', '1002'),
-('CSE331L', 'Compiler Design Lab', 'CSE 331L', '1007'),
-('CSE413', 'Simulation and Modeling', 'CSE 413', '1006'),
-('CSE413L', 'Simulation and Modeling Lab', ' CSE 413L', '1003'),
-('CSE323', 'Operating System', 'CSE 323', '1010'),
-('CSE323L', 'Operating System Lab', 'CSE 323L', '1003'),
-('CSE321', 'System Analysis and Design', 'CSE 321', '1003'),
-('CSE321L', 'System Analysis and Design Lab', 'CSE 321L', '1008'),
-('CSE421', 'Computer Graphics', 'CSE 421', '1004'),
-('CSE421L', 'Computer Graphics Lab', 'CSE 421L', '1004'),
-('CSE431', 'E-Commerce & Web Application', 'CSE 431', '1005'),
-('MGT414', ' Industrial Management', ' MGT 414', '1006'),
-('CSE412', 'Artificial Intelligence', 'CSE 412', '1007'),
-('CSE412L', 'Artificial Intelligence Lab', 'CSE 412L', '1007'),
-('CSE411', 'Communication Engineering', 'CSE 411', '1008'),
-('CSE332', 'Software Engineering', 'CSE 332', '1009'),
-('CSE333', 'Peripherals & Interfacing', 'CSE 333', '1009'),
-('CSE432', 'Computer and Network Security', 'CSE 432', '1006');
+INSERT INTO `subject` (`SubjectCode`, `Name`, `ShortNames`, `program_ID`, `level_ID`, `term_ID`, `Lecturer_Id`) VALUES
+('MAT121', 'Mathematics II: Linear algebra and Coordinate Geometry', 'MAT 121', 2, 1, 1, '1005'),
+('CSE131', 'Discrete Mathematics', ' CSE 131', 2, 1, 1, '1002'),
+('ENG113', 'English Language-1', 'ENG 113', 2, 1, 1, '1004'),
+('PHY123', 'Physics- II: Electricity, Magnetism and Modern Physics', 'PHY 123', 2, 1, 1, '1001'),
+('PHY123L', 'Physics-II Lab', 'PHY 123L', 2, 1, 1, '1010'),
+('CSE213', 'Algorithms', 'CSE 213', 2, 1, 2, '1001'),
+('CSE213L', 'Algorithm Lab', 'CSE 213L', 2, 1, 2, '1005'),
+('ACC214', 'Accounting', 'ACC 214', 2, 1, 2, '1005'),
+('ECO314', ' Economics', ' ECO 314', 2, 1, 2, '1009'),
+('MAT134', 'Mathematics III : Ordinary and Partial Differential Equations', ' MAT 134', 2, 1, 2, '1008'),
+('CSE221', 'Theory of Computing', ' CSE 221', 2, 1, 3, '1009'),
+('CSE222', 'Object Oriented Programming', ' CSE 222', 2, 1, 3, '1005'),
+('CSE222L', 'Object Oriented Programming Lab', 'CSE 222L', 2, 1, 3, '1001'),
+('MAT211', 'Mathematics-IV : Engineering Mathematics', ' MAT 211', 2, 1, 3, '1001'),
+('STA223', ' Statistics', ' STA 223', 2, 1, 3, '1004'),
+('CSE231', 'Microprocessor and Assembly Language', ' CSE 231', 2, 2, 1, '1001'),
+('CSE231L', ' Microprocessor and assembly Language Lab', ' CSE 231L', 2, 2, 1, '1007'),
+('CSE224', 'Electronic Devices and Circuits', ' CSE 224', 2, 2, 1, '1010'),
+('CSE224L', 'Electronic Devices and Circuits Lab', ' CSE 224L', 2, 2, 1, '1002'),
+('CSE232', 'Instrumentation and Control', 'CSE 232', 2, 2, 1, '1010'),
+('CSE233', 'Data Communication', 'CSE 233', 2, 2, 1, '1010'),
+('CSE322', 'Computer Architecture and Organization', ' CSE 322', 2, 2, 2, '1008'),
+('CSE313', 'Computer Networks', 'CSE 313', 2, 2, 2, '1010'),
+('CSE313L', 'Computer Networks Lab', 'CSE 313L', 2, 2, 2, '1007'),
+('CSE311', 'Database Management System', 'CSE 311', 2, 2, 2, '1001'),
+('CSE311L', 'Database Management System Lab', 'CSE 311L', 2, 2, 2, '1010'),
+('CSE312', 'Numerical Methods', ' CSE 312', 2, 2, 2, '1005'),
+('CSE331', 'Compiler Design', 'CSE 331', 2, 2, 3, '1002'),
+('CSE331L', 'Compiler Design Lab', 'CSE 331L', 2, 2, 3, '1007'),
+('CSE413', 'Simulation and Modeling', 'CSE 413', 2, 2, 3, '1006'),
+('CSE413L', 'Simulation and Modeling Lab', ' CSE 413L', 2, 2, 3, '1003'),
+('CSE323', 'Operating System', 'CSE 323', 2, 2, 3, '1010'),
+('CSE323L', 'Operating System Lab', 'CSE 323L', 2, 2, 3, '1003'),
+('CSE321', 'System Analysis and Design', 'CSE 321', 2, 3, 1, '1003'),
+('CSE321L', 'System Analysis and Design Lab', 'CSE 321L', 2, 3, 1, '1008'),
+('CSE421', 'Computer Graphics', 'CSE 421', 2, 3, 1, '1004'),
+('CSE421L', 'Computer Graphics Lab', 'CSE 421L', 2, 3, 1, '1004'),
+('CSE431', 'E-Commerce & Web Application', 'CSE 431', 2, 3, 1, '1005'),
+('MGT414', ' Industrial Management', ' MGT 414', 2, 3, 1, '1006'),
+('CSE412', 'Artificial Intelligence', 'CSE 412', 2, 3, 2, '1007'),
+('CSE412L', 'Artificial Intelligence Lab', 'CSE 412L', 2, 3, 2, '1007'),
+('CSE411', 'Communication Engineering', 'CSE 411', 2, 3, 2, '1008'),
+('CSE332', 'Software Engineering', 'CSE 332', 2, 3, 2, '1009'),
+('CSE333', 'Peripherals & Interfacing', 'CSE 333', 2, 3, 3, '1009'),
+('CSE432', 'Computer and Network Security', 'CSE 432', 2, 3, 3, '1006'),
+('CSE112', 'Computer Fundamentals', 'CSE 112', 1, 1, 1, '1001'),
+('MAT111', 'Mathematics-I: Differential and Integral Calculus', 'MAT 111', 1, 1, 1, '1010'),
+('ENG113D', 'Basic Functional English and English Spoken', 'ENG 113', 1, 1, 1, '1003'),
+('PHY113', 'Physics-I: Mechanics, Heat & Thermodynamics,Waves & Oscillation, Optics', 'PHY 113', 1, 1, 1, '1004'),
+('MAT121D', 'Mathematics -II: Complex Variable, Linear Algebra and Coordinate Geometry', 'MAT 121', 1, 1, 2, '1005'),
+('CSE122', 'Programming and Problem Solving', 'CSE 122', 1, 1, 2, '1006'),
+('CSE123', 'Problem Solving  Lab', 'CSE 123', 1, 1, 2, '1007'),
+('PHY123D', 'Physics-II: Electricity, Magnetism and Modern Physics', 'PHY 123', 1, 1, 2, '1008'),
+('PHY124', 'Physics-II Lab', 'PHY 124', 1, 1, 2, '1009'),
+('ENG123', 'Writing and Comprehension', 'ENG 123', 1, 1, 2, '1010'),
+('CSE131D', 'Discrete Mathematics', 'CSE 131', 1, 1, 3, '1010'),
+('CSE132', 'Electrical Circuits', 'CSE 132', 1, 1, 3, '1001'),
+('CSE133', 'Electrical Circuits Lab', 'CSE 133', 1, 1, 3, '1002'),
+('CSE134', 'Data Structure', 'CSE 134', 1, 1, 3, '1003'),
+('CSE135', 'Data Structure Lab', 'CSE 135', 1, 1, 3, '1002'),
+('MAT131', 'Ordinary and Partial Differential Equations', 'MAT 131', 1, 1, 3, '1003'),
+('MAT211D', 'Engineering Mathematics', 'MAT 211', 1, 2, 1, '1004'),
+('CSE212', 'Digital Electronics', 'CSE 212', 1, 2, 1, '1005'),
+('CSE213D', 'Digital Electronics Lab', 'CSE 213', 1, 2, 1, '1006'),
+('CSE214', 'Object Oriented Programming', 'CSE 214', 1, 2, 1, '1007'),
+('CSE215', 'Object Oriented Programming Lab', 'CSE 215', 1, 2, 1, '1008'),
+('ED201', 'G Bangladesh Studies', 'ED 201', 1, 2, 1, '1009'),
+('CSE221D', 'Algorithms', 'CSE 221', 1, 2, 2, '1010'),
+('CSE222D', 'Algorithms Lab', 'CSE 222', 1, 2, 2, '1003'),
+('STA133D', 'Statistics and Probability', 'STA 133', 1, 2, 2, '1004'),
+('CSE224D', 'Electronic Devices and Circuits', 'CSE 224', 1, 2, 2, '1003'),
+('CSE225', 'Electronic Devices and Circuits Lab', 'CSE 225', 1, 2, 2, '1004'),
+('CSE231D', 'Microprocessor and Assembly Language', 'CSE 231', 1, 2, 3, '1005'),
+('CSE232D', 'Microprocessor and Assembly Language Lab', 'CSE 232', 1, 2, 3, '1006'),
+('CSE233D', 'Data Communication', 'CSE 233', 1, 2, 3, '1005'),
+('CSE234D', 'Numerical Methods', 'CSE 234', 1, 2, 3, '1006'),
+('CSE235', 'Introduction to Bio-Informatics', 'CSE 235', 1, 2, 3, '1006'),
+('CSE311D', 'Database Management System', 'CSE 311', 1, 3, 1, '1007'),
+('CSE312D', 'Database Management System Lab', 'CSE 312', 1, 3, 1, '1008'),
+('CSE313D', 'Computer Networks', 'CSE 313', 1, 3, 1, '1009'),
+('ECO314D', 'Economics', 'ECO 314', 1, 3, 1, '1008'),
+('CSE321D', 'System Analysis and Design', 'CSE 321', 1, 3, 2, '1008'),
+('CSE322D', 'Computer Architecture and Organization', 'CSE 322', 1, 3, 2, '1009'),
+('CSE323D', 'Operating Systems', 'CSE 323', 1, 3, 2, '1008'),
+('CSE324', 'Operating Systems Lab', 'CSE 324', 1, 3, 2, '1009'),
+('GED321', 'Art of Effective Living', 'GED 321', 1, 3, 2, '1010'),
+('CSE314D', 'Computer Networks Lab', 'CSE 314', 1, 3, 1, '1002'),
+('CSE331D', 'Complier Design', 'CSE 331', 1, 3, 3, '1002'),
+('CSE332D', 'Complier Design Lab', 'CSE 332', 1, 3, 3, '1003'),
+('CSE333D', 'Software Engineering', 'CSE 333', 1, 3, 3, '1004'),
+('CSE334', 'Wireless Programming', 'CSE 334', 1, 3, 3, '1003'),
+('ACT301', 'Financial and Managerial Accounting 2', 'ACT 301', 1, 3, 3, '1004'),
+('CSE412D', 'Artificial Intelligence', 'CSE 412', 1, 4, 1, '1005'),
+('CSE413D', 'Artificial Intelligence Lab', 'CSE 413', 1, 4, 1, '1006'),
+('CSE414D', 'Simulation and Modelling', 'CSE 414', 1, 4, 1, '1005'),
+('CSE415D', 'Simulation and Modelling Lab', 'CSE 415', 1, 4, 1, '1006'),
+('CSE417', 'Web Engineering', 'CSE 417', 1, 4, 1, '1007'),
+('CSE418', 'Web Engineering Lab', 'CSE418', 1, 4, 1, '1008'),
+('CSE421D', 'Computer Graphics', 'CSE 421', 1, 4, 2, '1008'),
+('CSE422D', 'Computer Graphics Lab', 'CSE 422', 1, 4, 2, '1009'),
+('CSE423', 'Embedded Systems', 'CSE 423', 1, 4, 2, '1009'),
+('CSE498', 'Social and Professional Issues in Computing', 'CSE 498', 1, 4, 3, '1010');
 
 -- --------------------------------------------------------
 
@@ -433,6 +517,12 @@ INSERT INTO `thirdyear` (`Roll_No`, `first_name`, `last_name`) VALUES
 --
 
 --
+-- Indexes for table `classroom`
+--
+ALTER TABLE `classroom`
+  ADD PRIMARY KEY (`Classroom_ID`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -460,6 +550,8 @@ ALTER TABLE `teachers`
 --
 ALTER TABLE `login`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

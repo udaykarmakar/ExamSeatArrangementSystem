@@ -1,10 +1,7 @@
 <?php
-    $db = "seatingarrangement";
+    require 'Db.php';
     $error = "";
     $success = "";
-    $conn = mysqli_connect('localhost','root','') or die();
-    $db = mysqli_select_db($conn, $db);
-
     if(isset($_POST['uname'])){
         $username=$_POST['uname'];
         $password=$_POST['pass'];

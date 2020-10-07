@@ -1,14 +1,15 @@
 <?php
    session_start();
-     var_dump($_SESSION);
+   $DateSe=$DateTe=$DateBe=array();
+     // var_dump($_SESSION);
       $classVector = array_splice($_SESSION,4);
       //arrayClass
-      var_dump($classVector);
+      // var_dump($classVector);
       //se
     $seTimeTable = $_SESSION['SE'];
-    var_dump($seTimeTable);
+    // var_dump($seTimeTable);
     $slot = explode("  ",trim(array_shift($seTimeTable)));
-    var_dump($slot);
+    // var_dump($slot);
     foreach ($slot as $s)
     {
         $dateD =array_shift($seTimeTable);
@@ -17,12 +18,12 @@
             $DateSe[$dateD][] = array_shift($seTimeTable);
         }
     }
-    var_dump($DateSe);
+    // var_dump($DateSe);
 
 $teTimeTable = $_SESSION['TE'];
-var_dump($seTimeTable);
+// var_dump($seTimeTable);
 $slot = explode("  ",trim(array_shift($teTimeTable)));
-var_dump($slot);
+// var_dump($slot);
 foreach ($slot as $s)
 {
     $dateD =array_shift($teTimeTable);
@@ -31,12 +32,12 @@ foreach ($slot as $s)
         $DateTe[$dateD][] = array_shift($teTimeTable);
     }
 }
-var_dump($DateTe);
+// var_dump($DateTe);
 
 $beTimeTable = $_SESSION['BE'];
-var_dump($beTimeTable);
+// var_dump($beTimeTable);
 $slot = explode("  ",trim(array_shift($beTimeTable)));
-var_dump($slot);
+// var_dump($slot);
 foreach ($slot as $s)
 {
     $dateD =array_shift($beTimeTable);
@@ -45,7 +46,7 @@ foreach ($slot as $s)
         $DateBe[$dateD][] = array_shift($beTimeTable);
     }
 }
-var_dump($DateBe);
+// var_dump($DateBe);
 
 
 	error_reporting( E_ERROR | E_PARSE | E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_COMPILE_WARNING );
@@ -164,62 +165,62 @@ var_dump($DateBe);
 	
 		if($i==0)
 		{
-		$te[$i]->name="Mahalaxmi";
+		$te[$i]->name="Prof. Dr. Syed Akhter Hossain";
 		$te[$i]->sub[0]="43";
 		$te[$i]->sub[1]="31";
 		}
 		if($i==1)
 		{
-		$te[$i]->name="Aruna";
+		$te[$i]->name="Dr. Sheak Rashed Haider Noori";
 
 		$te[$i]->sub[0]="26";
 		$te[$i]->sub[1]="33";
 		}
 		if($i==2)
 		{
-		$te[$i]->name="Tayyab Ali";
+		$te[$i]->name="Dr. Md. Mustafizur Rahman";
 		$te[$i]->sub[0]="22";
 		$te[$i]->sub[1]="34";
 		}
 		if($i==3)
 		{
-		$te[$i]->name="Prasad";
+		$te[$i]->name="Dr. S. M. Aminul Haque";
 		$te[$i]->sub[0]="41";
 		$te[$i]->sub[1]="0";
 		}
 		if($i==4)
 		{
-		$te[$i]->name="Nilesh";
+		$te[$i]->name="Professor Dr. Md. Ismail Jabiullah";
 		$te[$i]->sub[0]="25";
 		$te[$i]->sub[1]="0";
 		}
 		if($i==5)
 		{
-		$te[$i]->name="Vaishali";
+		$te[$i]->name="Dr. S.R.Subramanya";
 		$te[$i]->sub[0]="35";
 		$te[$i]->sub[1]="0";
 		}
 		if($i==6)
 		{
-		$te[$i]->name="Sunantha";
+		$te[$i]->name="Dr. Neil Perez Balba";
 		$te[$i]->sub[0]="42";
 		$te[$i]->sub[1]="32";
 		}
 		if($i==7)
 		{
-		$te[$i]->name= "Uday";
+		$te[$i]->name= "Dr. Bibhuti Roy";
 		$te[$i]->sub[0]="24";
 		$te[$i]->sub[1]= "44" ;
 		}
 		if($i==8)
 		{
-		$te[$i]->name="Sushree";
+		$te[$i]->name="Mr. Anisur Rahman";
 		$te[$i]->sub[0]="31";
 		$te[$i]->sub[1]="0";
 		}
 		if($i==9)
 		{
-		$te[$i]->name="Pranjalee";
+		$te[$i]->name="Mr. Gazi Zahirul Islam";
 		$te[$i]->sub[0]="21";
 		$te[$i]->sub[1]="0";
 		}
@@ -330,9 +331,9 @@ var_dump($DateBe);
 	echo "<table border =\"1\" style='border-collapse: collapse;width:80%;margin-left:10%;height:50%;text-align: center;'>"; 
 	echo "<tr> \n";
 	echo "<th> </td>\n";
-	echo "<th colspan='2'>Class 1</td> \n";
-	echo "<th colspan='2'>Class 2</td> \n";
-	echo "<th colspan='2'>Class 3</td> \n";
+	echo "<th colspan='2'>DT 101</td> \n";
+	echo "<th colspan='2'>DT 102</td> \n";
+	echo "<th colspan='2'>DT 103</td> \n";
 	echo "</tr> \n";
 	
 	for($i=0;$i<3;$i++)
@@ -341,7 +342,7 @@ var_dump($DateBe);
 		$lk=$i+1;
 					echo "<tr> ";
 	
-				echo "<th >Day $lk</th> ";
+				echo "<th >Roster $lk</th> ";
 		
 		
 			
@@ -385,3 +386,13 @@ var_dump($DateBe);
 	};echo "</table>";
 	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<br>
+<center><button onclick="window.print()">PRINT</button></center>
+</body>
+</html>

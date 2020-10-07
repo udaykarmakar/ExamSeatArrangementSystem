@@ -26,22 +26,14 @@ else{
 <head>
     <meta charset="utf-8">
     <title>Seating Arrangement</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
-    <script src="bootstrap/jquery-3.2.0.js"></script>
-    <script src="bootstrap/bootstrap.js"></script>
-    <link rel="stylesheet" href="custom.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <?php include('head.php'); ?>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-light">
     <div class="container-fluid">
         <!--header-->
         <div class="navbar-header">
-                <img src="https://daffodilvarsity.edu.bd/template/images/diulogoside.png" style="max-width:150px"/>
+                <img src="dist/img/diulogoside.png" style="max-width:150px"/>
                 <a href="homepage.php" class="navbar-brand" style="font-size:25px">EXAM SEATING ARRANGEMENT SYSTEM</a>
             </div>
     </div>

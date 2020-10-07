@@ -1,4 +1,6 @@
 <?php
+ob_start();
+// var_dump($_SESSION['Details']);exit;
 for($i = 0;$i<$_SESSION['Details']['noClass'];$i++)
     unset($_SESSION['class_'.$i]);
 require_once('fpdf.php');
@@ -31,6 +33,7 @@ class pdf extends fpdf
    	{
          $this->SetY($this->GetY()+1);
    		$this->SetX($x);
+         // var_dump(count($this->roll1));
          if(count($this->roll1)==0)
          {
             $this->Cell(2,1," ",1,0,'C');
@@ -103,9 +106,10 @@ function seatAllot($se,$te,$be)
    $beSlotCount = count($beSlots);
    $bePreFix="BE";
    $page = new pdf('P','cm','A4');
-   for($i=0;$i<$roomNo;$i++)
+   // echo $roomNo;exit;
+   $roomNo=102;
+   for($i=101;$i<=$roomNo;$i++)
    {
-
       $page->AddPage('P','A4',0);
       if($i%3 == 0)
       {

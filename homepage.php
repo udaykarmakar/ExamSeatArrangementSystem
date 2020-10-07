@@ -7,6 +7,7 @@ session_unset();
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
     $_SESSION['Details']=$_POST;
+    $_SESSION['Details']['noClass']='101';
     $str=<<< _alert
 <script>
 window.location.assign("TimeTableSe.php");
@@ -20,7 +21,6 @@ else
 <!doctype html>
 <html>
 <head>
-    <title>Home Page</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css"/>
     <link rel="stylesheet" href="custom.css"/>
     <meta charset="utf-8">
@@ -29,13 +29,16 @@ else
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Home Page</title>
+                <?php include('head.php'); ?>
 </head>
     <body>
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container-fluid">
             <!--header-->
             <div class="navbar-header">
-                <img src="https://daffodilvarsity.edu.bd/template/images/diulogoside.png" style="max-width:150px"/>
+                <img src="dist/img/diulogoside.png" style="max-width:150px"/>
                 <div class="navbar-brand">
                     <h1>EXAM SEATING ARRANGEMENT SYSTEM</h1>
                 </div>
@@ -83,42 +86,43 @@ else
                     <option value= "2030">2031</option>
                 </select><br/>
             </div>
-            <div class="row">
+            <div class="row" style="display: none;">
                 <div id="slot1">
                     <header class="col-md-12"><label>First Slot</label></header>
                     <div class="col-md-6">
-                    <label for="startTime1">Start Time:</label><input type="time" name="startTime1" title="startTime1" class="form-control" required style="font-size:12px"/><br/>
+                    <label for="startTime1">Start Time:</label><input type="time" name="startTime1" title="startTime1" class="form-control" style="font-size:12px"/><br/>
                     </div>
                     <div class="col-md-6">
-                    <label for="endTime1">End Time:</label><input type="time" name="endTime1" title="endTime1" class="form-control" required style="font-size:12px"/><br/>
+                    <label for="endTime1">End Time:</label><input type="time" name="endTime1" title="endTime1" class="form-control" style="font-size:12px"/><br/>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="display: none;">
                 <div id="slot2">
                     <header class="col-md-12"><label>Second Slot</label></header>
                     <div class="col-md-6">
-                        <label for="startTime2">Start Time:</label><input type="time" name="startTime2" title="startTime2" class="form-control" required style="font-size:12px"/><br/>
+                        <label for="startTime2">Start Time:</label><input type="time" name="startTime2" title="startTime2" class="form-control" style="font-size:12px"/><br/>
                     </div>
                     <div class="col-md-6">
-                        <label for="endTime2">End Time:</label><input type="time" name="endTime2" title="endTime2" class="form-control" required style="font-size:12px"/><br/>
+                        <label for="endTime2">End Time:</label><input type="time" name="endTime2" title="endTime2" class="form-control" style="font-size:12px"/><br/>
                     </div>
                 </div>
             </div>
-            <label for="noClass">Available Class Room</label><br>
-                <input type="checkbox" name="DT-101" value="DT-101" checked>
+            <label style="display: none;">
+                <label for="noClass">Available Class Room</label><br>
+                <input type="checkbox" name="classroomCode" value="DT-101" checked>
                 <label for="DT-101"> DT-101</label><br>
-                <input type="checkbox" name="DT-102" value="DT-102" checked>
+                <input type="checkbox" name="classroomCode" value="DT-102" checked>
                 <label for="DT-102"> DT-102</label><br>
-                <input type="checkbox" name="DT-103" value="DT-103">
+                <input type="checkbox" name="classroomCode" value="DT-103">
                 <label for="DT-103"> DT-103</label><br>
-                <input type="checkbox" name="DT-104" value="DT-104">
+                <input type="checkbox" name="classroomCode" value="DT-104">
                 <label for="DT-104"> DT-104</label><br>
-                <input type="checkbox" name="DT-105" value="DT-105">
+                <input type="checkbox" name="classroomCode" value="DT-105">
                 <label for="DT-105"> DT-105</label><br>
-                <input type="checkbox" name="DT-106" value="DT-106">
+                <input type="checkbox" name="classroomCode" value="DT-106">
                 <label for="DT-106"> DT-106</label><br>
-            
+            </label>
             <input type="submit" value="Start" class="form-control btn btn-dark" style="font-size:12px">
         </form>
         </div>
